@@ -1,0 +1,1068 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="bar">
+    <div class="logo">CS</div>
+    <b>College Admin Dashboard</b>
+    <a href="/logout">Logout</a>
+</header>
+
+<main class="hero">
+    <section>
+        <h1>Welcome, Admin!</h1>
+        <p>Manage your college student records in one place.</p>
+
+        <div class="panel">
+            <h3>Student Management</h3>
+<p>View and add registered students.</p>
+
+<h3>Add New Student</h3>
+
+<form id="addStudentForm">
+    <input type="text" id="name" placeholder="Student Name" required>
+
+    <input type="text" id="rollNo" placeholder="Roll Number" required>
+
+    <input type="text" id="registrationNo" placeholder="Registration Number" required>
+
+    <input type="text" id="course" placeholder="Course (e.g. BCA)" required>
+
+    <input type="number" id="semester" placeholder="Semester" min="1" required>
+
+    <input type="date" id="dob" required>
+
+    <button type="submit" class="btn">Add Student</button>
+</form>
+
+<p id="formMessage"></p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Roll Number</th>
+                        <th>Registration Number</th>
+                        <th>Course</th>
+                        <th>Semester</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="studentTable">
+                    <tr>
+                        <td colspan="7">Loading students...</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p id="message"></p>
+
+<h3>Fee Management</h3>
+<p>Add and manage student fee records.</p>
+
+<h3>Add Student Fee</h3>
+
+<form id="addFeeForm">
+
+    <input type="number"
+           id="feeStudentId"
+           placeholder="Student ID"
+           min="1"
+           required>
+
+    <input type="number"
+           id="totalFee"
+           placeholder="Total Fee"
+           min="0.01"
+           step="0.01"
+           required>
+
+    <input type="number"
+           id="paidFee"
+           placeholder="Amount Paid"
+           min="0"
+           step="0.01"
+           required>
+
+    <input type="date"
+           id="lastPaymentDate"
+           required>
+
+    <button type="submit" class="btn">
+        Add Fee
+    </button>
+
+</form>
+
+<p id="feeMessage"></p>
+
+<h3>Student Fee Records</h3>
+
+<table>
+    <thead>
+        <tr>
+            <th>Fee ID</th>
+            <th>Student ID</th>
+            <th>Total Fee</th>
+            <th>Paid</th>
+            <th>Pending</th>
+            <th>Last Payment</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody id="feeTable">
+        <tr>
+            <td colspan="7">Loading fee records...</td>
+        </tr>
+    </tbody>
+</table>
+   
+<h3>Marks Management</h3>
+<p>Add and manage student academic marks.</p>
+
+<h3>Add Student Marks</h3>
+
+<form id="addMarkForm">
+
+    <input type="number"
+           id="markStudentId"
+           placeholder="Student ID"
+           min="1"
+           required>
+
+    <input type="number"
+           id="markSemester"
+           placeholder="Semester"
+           min="1"
+           required>
+
+    <input type="text"
+           id="markSubject"
+           placeholder="Subject Name"
+           required>
+
+    <input type="number"
+           id="marksObtained"
+           placeholder="Marks Obtained"
+           min="0"
+           required>
+
+    <input type="number"
+           id="maxMarks"
+           placeholder="Maximum Marks"
+           min="1"
+           required>
+
+    <button type="submit" class="btn">
+        Add Marks
+    </button>
+
+</form>
+
+<p id="markMessage"></p>
+
+<h3>Student Marks Records</h3>
+
+<table>
+    <thead>
+        <tr>
+            <th>Mark ID</th>
+            <th>Student ID</th>
+            <th>Semester</th>
+            <th>Subject</th>
+            <th>Marks Obtained</th>
+            <th>Maximum Marks</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody id="markTable">
+        <tr>
+            <td colspan="7">Loading marks...</td>
+        </tr>
+    </tbody>
+</table>
+  
+<h3>Assignment Management</h3>
+<p>Add and manage student assignments.</p>
+
+<h3>Add New Assignment</h3>
+
+<form id="addAssignmentForm">
+
+    <input type="number"
+           id="assignmentStudentId"
+           placeholder="Student ID"
+           min="1"
+           required>
+
+    <input type="text"
+           id="assignmentSubject"
+           placeholder="Subject"
+           required>
+
+    <input type="text"
+           id="assignmentTitle"
+           placeholder="Assignment Title"
+           required>
+
+    <input type="date"
+           id="assignmentDueDate"
+           required>
+
+    <select id="assignmentStatus" required>
+        <option value="">Select Status</option>
+        <option value="PENDING">Pending</option>
+        <option value="DONE">Done</option>
+    </select>
+
+    <button type="submit" class="btn">
+        Add Assignment
+    </button>
+
+</form>
+
+<p id="assignmentMessage"></p>
+
+<h3>Student Assignment Records</h3>
+
+<table>
+    <thead>
+        <tr>
+            <th>Assignment ID</th>
+            <th>Student ID</th>
+            <th>Subject</th>
+            <th>Title</th>
+            <th>Due Date</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody id="assignmentTable">
+        <tr>
+            <td colspan="7">Loading assignments...</td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+    </section>
+</main>
+
+<script>
+async function loadStudents() {
+    const table = document.getElementById("studentTable");
+    const message = document.getElementById("message");
+
+    try {
+        const response = await fetch("/api/admin/students");
+
+        if (!response.ok) {
+            throw new Error("Unable to load students.");
+        }
+
+        const students = await response.json();
+
+        if (students.length === 0) {
+            table.innerHTML =
+                '<tr><td colspan="7">No students found.</td></tr>';
+            return;
+        }
+
+        table.innerHTML = students.map(student => `
+            <tr>
+                <td>${student.id}</td>
+                <td>${student.name}</td>
+                <td>${student.rollNo}</td>
+                <td>${student.registrationNo}</td>
+                <td>${student.course}</td>
+                <td>${student.semester}</td>
+                <td>
+                    <button onclick="editStudent(${student.id})">Edit</button>
+
+                    <button onclick="deleteStudent(${student.id})">
+                         Delete
+                    </button>
+                </td>    
+            </tr>
+        `).join("");
+
+    } catch (error) {
+        message.textContent = error.message;
+    }
+}
+document.getElementById("addStudentForm")
+    .addEventListener("submit", async function(e) {
+
+    e.preventDefault();
+
+    const student = {
+        name: document.getElementById("name").value,
+        rollNo: document.getElementById("rollNo").value,
+        registrationNo: document.getElementById("registrationNo").value,
+        course: document.getElementById("course").value,
+        semester: Number(document.getElementById("semester").value),
+        dob: document.getElementById("dob").value
+    };
+
+    try {
+       // First, get the CSRF security token
+const csrfResponse = await fetch("/api/admin/csrf");
+
+if (!csrfResponse.ok) {
+    throw new Error("Unable to get security token.");
+}
+
+const csrf = await csrfResponse.json();
+
+// Send student details with the security token
+const response = await fetch("/api/admin/students", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json",
+        [csrf.headerName]: csrf.token
+    },
+    body: JSON.stringify(student)
+});
+        if (!response.ok) {
+            throw new Error("Unable to add student.");
+        }
+
+        document.getElementById("formMessage").textContent =
+            "Student added successfully!";
+
+        this.reset();
+        loadStudents();
+
+    } catch (error) {
+        document.getElementById("formMessage").textContent =
+            error.message;
+    }
+});
+
+loadStudents();
+
+async function editStudent(id) {
+    try {
+        // Get all students
+        const response = await fetch("/api/admin/students");
+
+        if (!response.ok) {
+            throw new Error("Unable to fetch student details.");
+        }
+
+        const students = await response.json();
+
+        // Find selected student
+        const student = students.find(s => s.id === id);
+
+        if (!student) {
+            throw new Error("Student not found.");
+        }
+
+        // Ask for updated details
+        const name = prompt("Enter Student Name:", student.name);
+        if (name === null) return;
+
+        const rollNo = prompt("Enter Roll Number:", student.rollNo);
+        if (rollNo === null) return;
+
+        const registrationNo = prompt(
+            "Enter Registration Number:",
+            student.registrationNo
+        );
+        if (registrationNo === null) return;
+
+        const course = prompt("Enter Course:", student.course);
+        if (course === null) return;
+
+        const semester = prompt("Enter Semester:", student.semester);
+        if (semester === null) return;
+
+        const dob = prompt("Enter Date of Birth (YYYY-MM-DD):", student.dob);
+        if (dob === null) return;
+
+        const updatedStudent = {
+            name,
+            rollNo,
+            registrationNo,
+            course,
+            semester: Number(semester),
+            dob
+        };
+
+        // Get CSRF security token
+        const csrfResponse = await fetch("/api/admin/csrf");
+
+        if (!csrfResponse.ok) {
+            throw new Error("Unable to get security token.");
+        }
+
+        const csrf = await csrfResponse.json();
+
+        // Update student
+        const updateResponse = await fetch(
+            `/api/admin/students/${id}`,
+            {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json",
+                    [csrf.headerName]: csrf.token
+                },
+                body: JSON.stringify(updatedStudent)
+            }
+        );
+
+        if (!updateResponse.ok) {
+            throw new Error("Unable to update student.");
+        }
+
+        document.getElementById("message").textContent =
+            "Student updated successfully!";
+
+        loadStudents();
+
+    } catch (error) {
+        document.getElementById("message").textContent = error.message;
+    }
+} 
+window.deleteStudent = async function(id) {
+
+    // Ask for confirmation
+    const confirmDelete = confirm(
+        "Are you sure you want to delete this student?"
+    );
+
+    if (!confirmDelete) {
+        return;
+    }
+
+    try {
+        // Get CSRF security token
+        const csrfResponse = await fetch("/api/admin/csrf");
+
+        if (!csrfResponse.ok) {
+            throw new Error("Unable to get security token.");
+        }
+
+        const csrf = await csrfResponse.json();
+
+        // Send delete request
+        const response = await fetch(
+            `/api/admin/students/${id}`,
+            {
+                method: "DELETE",
+                headers: {
+                    [csrf.headerName]: csrf.token
+                }
+            }
+        );
+
+        if (!response.ok) {
+            throw new Error("Unable to delete student.");
+        }
+
+        document.getElementById("message").textContent =
+            "Student deleted successfully!";
+
+        loadStudents();
+
+    } catch (error) {
+        document.getElementById("message").textContent =
+            error.message;
+    }
+};
+ 
+// Load all student fee records
+async function loadFees() {
+    const table = document.getElementById("feeTable");
+
+    try {
+        const response = await fetch("/api/admin/fees");
+
+        if (!response.ok) {
+            throw new Error("Unable to load fee records.");
+        }
+
+        const fees = await response.json();
+
+        if (fees.length === 0) {
+            table.innerHTML =
+                '<tr><td colspan="7">No fee records found.</td></tr>';
+            return;
+        }
+
+        table.innerHTML = fees.map(fee => `
+            <tr>
+                <td>${fee.id}</td>
+                <td>${fee.studentId}</td>
+                <td>₹${Number(fee.totalFee).toFixed(2)}</td>
+                <td>₹${Number(fee.paid).toFixed(2)}</td>
+                <td>₹${(Number(fee.totalFee) - Number(fee.paid)).toFixed(2)}</td>
+                <td>${fee.lastPaymentDate || "Not available"}</td>
+                <td>
+                  <button onclick="updateFee(${fee.id}, ${fee.paid}, '${fee.lastPaymentDate || ""}')">
+                     Update Payment
+                   </button>
+                </td>
+            </tr>
+        `).join("");
+
+    } catch (error) {
+        table.innerHTML =
+            `<tr><td colspan="7">${error.message}</td></tr>`;
+    }
+}
+
+
+// Add a new fee record
+document.getElementById("addFeeForm")
+    .addEventListener("submit", async function(e) {
+
+    e.preventDefault();
+
+    const totalFee = Number(document.getElementById("totalFee").value);
+    const paidFee = Number(document.getElementById("paidFee").value);
+
+    if (paidFee < 0 || paidFee > totalFee) {
+        document.getElementById("feeMessage").textContent =
+            "Paid amount must be between 0 and total fee.";
+        return;
+    }
+
+    const fee = {
+        studentId: Number(document.getElementById("feeStudentId").value),
+        totalFee: totalFee,
+        paid: paidFee,
+        lastPaymentDate:
+            document.getElementById("lastPaymentDate").value
+    };
+
+    try {
+        const csrfResponse = await fetch("/api/admin/csrf");
+
+        if (!csrfResponse.ok) {
+            throw new Error("Unable to get security token.");
+        }
+
+        const csrf = await csrfResponse.json();
+
+        const response = await fetch("/api/admin/fees", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                [csrf.headerName]: csrf.token
+            },
+            body: JSON.stringify(fee)
+        });
+
+        if (response.status === 404) {
+            throw new Error("Student ID not found.");
+        }
+
+        if (response.status === 400) {
+            throw new Error("Fee record already exists for this student.");
+        }
+
+        if (!response.ok) {
+            throw new Error("Unable to add fee record.");
+        }
+
+        document.getElementById("feeMessage").textContent =
+            "Fee record added successfully!";
+
+        this.reset();
+        loadFees();
+
+    } catch (error) {
+        document.getElementById("feeMessage").textContent =
+            error.message;
+    }
+});
+
+loadFees();
+
+
+// Load all student marks
+async function loadMarks() {
+
+    const table = document.getElementById("markTable");
+
+    try {
+        const response = await fetch("/api/admin/marks");
+
+        if (!response.ok) {
+            throw new Error("Unable to load marks.");
+        }
+
+        const marks = await response.json();
+
+        if (marks.length === 0) {
+            table.innerHTML =
+                '<tr><td colspan="7">No marks found.</td></tr>';
+            return;
+        }
+
+        table.innerHTML = marks.map(mark => `
+            <tr>
+                <td>${mark.id}</td>
+                <td>${mark.studentId}</td>
+                <td>${mark.semester}</td>
+                <td>${mark.subject}</td>
+                <td>${mark.marksObtained}</td>
+                <td>${mark.maxMarks}</td>
+                <td>${mark.maxMarks}</td>
+                <td>
+                   <button onclick="updateMark(${mark.id}, ${mark.semester}, '${mark.subject}', ${mark.marksObtained}, ${mark.maxMarks})">
+                       Update
+                    </button>
+
+                     <button onclick="deleteMark(${mark.id})">
+                         Delete
+                      </button>
+                </td>
+            </tr>
+        `).join("");
+
+    } catch (error) {
+        table.innerHTML =
+            `<tr><td colspan="7">${error.message}</td></tr>`;
+    }
+}
+
+
+// Add marks for a student
+document.getElementById("addMarkForm")
+    .addEventListener("submit", async function(e) {
+
+    e.preventDefault();
+
+    const obtained = Number(
+        document.getElementById("marksObtained").value
+    );
+
+    const maximum = Number(
+        document.getElementById("maxMarks").value
+    );
+
+    if (obtained < 0 || maximum <= 0 || obtained > maximum) {
+        document.getElementById("markMessage").textContent =
+            "Please enter valid marks.";
+        return;
+    }
+
+    const mark = {
+        studentId: Number(document.getElementById("markStudentId").value),
+        semester: Number(document.getElementById("markSemester").value),
+        subject: document.getElementById("markSubject").value,
+        marksObtained: obtained,
+        maxMarks: maximum
+    };
+
+    try {
+        const csrfResponse = await fetch("/api/admin/csrf");
+        const csrf = await csrfResponse.json();
+
+        const response = await fetch("/api/admin/marks", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                [csrf.headerName]: csrf.token
+            },
+            body: JSON.stringify(mark)
+        });
+
+        if (response.status === 404) {
+            throw new Error("Student ID not found.");
+        }
+
+        if (response.status === 400) {
+            throw new Error("Please check the marks entered.");
+        }
+
+        if (!response.ok) {
+            throw new Error("Unable to add marks.");
+        }
+
+        document.getElementById("markMessage").textContent =
+            "Marks added successfully!";
+
+        this.reset();
+        loadMarks();
+
+    } catch (error) {
+        document.getElementById("markMessage").textContent =
+            error.message;
+    }
+});
+
+
+// Load marks when dashboard opens
+loadMarks();
+
+// Load all student assignments
+async function loadAssignments() {
+
+    const table = document.getElementById("assignmentTable");
+
+    try {
+        const response = await fetch("/api/admin/assignments");
+
+        if (!response.ok) {
+            throw new Error("Unable to load assignments.");
+        }
+
+        const assignments = await response.json();
+
+        if (assignments.length === 0) {
+            table.innerHTML =
+                '<tr><td colspan="7">No assignments found.</td></tr>';
+            return;
+        }
+
+        table.innerHTML = assignments.map(assignment => `
+            <tr>
+                <td>${assignment.id}</td>
+                <td>${assignment.studentId}</td>
+                <td>${assignment.subject}</td>
+                <td>${assignment.title}</td>
+                <td>${assignment.dueDate}</td>
+                <td>${assignment.status}</td>
+                <td>
+                   <button onclick="updateAssignment(${assignment.id}, '${assignment.subject}', '${assignment.title}', '${assignment.dueDate}', '${assignment.status}')">
+                      Update
+                    </button>
+
+                     <button onclick="deleteAssignment(${assignment.id})">
+                        Delete
+                     </button>
+                </td>
+            </tr>
+        `).join("");
+
+    } catch (error) {
+        table.innerHTML =
+            `<tr><td colspan="7">${error.message}</td></tr>`;
+    }
+}
+
+
+// Add a new assignment
+document.getElementById("addAssignmentForm")
+    .addEventListener("submit", async function(e) {
+
+    e.preventDefault();
+
+    const assignment = {
+        studentId: Number(
+            document.getElementById("assignmentStudentId").value
+        ),
+        subject: document.getElementById("assignmentSubject").value,
+        title: document.getElementById("assignmentTitle").value,
+        dueDate: document.getElementById("assignmentDueDate").value,
+        status: document.getElementById("assignmentStatus").value
+    };
+
+    try {
+        const csrfResponse = await fetch("/api/admin/csrf");
+        const csrf = await csrfResponse.json();
+
+        const response = await fetch("/api/admin/assignments", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                [csrf.headerName]: csrf.token
+            },
+            body: JSON.stringify(assignment)
+        });
+
+        if (response.status === 404) {
+            throw new Error("Student ID not found.");
+        }
+
+        if (response.status === 400) {
+            throw new Error("Please enter valid assignment details.");
+        }
+
+        if (!response.ok) {
+            throw new Error("Unable to add assignment.");
+        }
+
+        document.getElementById("assignmentMessage").textContent =
+            "Assignment added successfully!";
+
+        this.reset();
+        loadAssignments();
+
+    } catch (error) {
+        document.getElementById("assignmentMessage").textContent =
+            error.message;
+    }
+});
+
+
+// Load assignments when dashboard opens
+loadAssignments();
+
+window.updateFee = async function(id, currentPaid, currentDate) {
+
+    const newPaid = prompt("Enter updated paid amount:", currentPaid);
+
+    if (newPaid === null) return;
+
+    const paidAmount = Number(newPaid);
+
+    if (newPaid.trim() === "" || !Number.isFinite(paidAmount) || paidAmount < 0) {
+        alert("Please enter a valid paid amount.");
+        return;
+    }
+
+    const newDate = prompt(
+        "Enter last payment date (YYYY-MM-DD):",
+        currentDate
+    );
+
+    if (newDate === null) return;
+
+    if (!newDate.trim()) {
+        alert("Please enter a payment date.");
+        return;
+    }
+
+    try {
+        const csrfResponse = await fetch("/api/admin/csrf");
+        const csrf = await csrfResponse.json();
+
+        const response = await fetch(`/api/admin/fees/${id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+                [csrf.headerName]: csrf.token
+            },
+            body: JSON.stringify({
+                paid: paidAmount,
+                lastPaymentDate: newDate
+            })
+        });
+
+        if (response.status === 400) {
+            throw new Error("Paid amount cannot exceed the total fee.");
+        }
+
+        if (!response.ok) {
+            throw new Error("Unable to update payment.");
+        }
+
+        document.getElementById("feeMessage").textContent =
+            "Payment updated successfully!";
+
+        loadFees();
+
+    } catch (error) {
+        alert(error.message);
+    }
+};
+loadFees();
+
+// Update existing student marks
+window.updateMark = async function(id, semester, subject, obtained, maximum) {
+
+    const newSemester = prompt("Enter Semester:", semester);
+    if (newSemester === null) return;
+
+    const newSubject = prompt("Enter Subject:", subject);
+    if (newSubject === null) return;
+
+    const newObtained = prompt("Enter Marks Obtained:", obtained);
+    if (newObtained === null) return;
+
+    const newMaximum = prompt("Enter Maximum Marks:", maximum);
+    if (newMaximum === null) return;
+
+    const updatedObtained = Number(newObtained);
+    const updatedMaximum = Number(newMaximum);
+
+    if (
+        !newSemester.trim() ||
+        !newSubject.trim() ||
+        !Number.isInteger(Number(newSemester)) ||
+        Number(newSemester) < 1 ||
+        !Number.isFinite(updatedObtained) ||
+        !Number.isFinite(updatedMaximum) ||
+        updatedObtained < 0 ||
+        updatedMaximum <= 0 ||
+        updatedObtained > updatedMaximum
+    ) {
+        alert("Please enter valid marks details.");
+        return;
+    }
+
+    try {
+        const csrfResponse = await fetch("/api/admin/csrf");
+        const csrf = await csrfResponse.json();
+
+        const response = await fetch(`/api/admin/marks/${id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+                [csrf.headerName]: csrf.token
+            },
+            body: JSON.stringify({
+                semester: Number(newSemester),
+                subject: newSubject,
+                marksObtained: updatedObtained,
+                maxMarks: updatedMaximum
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error("Unable to update marks.");
+        }
+
+        document.getElementById("markMessage").textContent =
+            "Marks updated successfully!";
+
+        loadMarks();
+
+    } catch (error) {
+        alert(error.message);
+    }
+};
+
+
+// Delete student marks
+window.deleteMark = async function(id) {
+
+    const confirmDelete = confirm(
+        "Are you sure you want to delete these marks?"
+    );
+
+    if (!confirmDelete) return;
+
+    try {
+        const csrfResponse = await fetch("/api/admin/csrf");
+        const csrf = await csrfResponse.json();
+
+        const response = await fetch(`/api/admin/marks/${id}`, {
+            method: "DELETE",
+            headers: {
+                [csrf.headerName]: csrf.token
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error("Unable to delete marks.");
+        }
+
+        document.getElementById("markMessage").textContent =
+            "Marks deleted successfully!";
+
+        loadMarks();
+
+    } catch (error) {
+        alert(error.message);
+    }
+};
+
+// Update existing assignment
+window.updateAssignment = async function(id, subject, title, dueDate, status) {
+
+    const newSubject = prompt("Enter Subject:", subject);
+    if (newSubject === null) return;
+
+    const newTitle = prompt("Enter Assignment Title:", title);
+    if (newTitle === null) return;
+
+    const newDueDate = prompt("Enter Due Date (YYYY-MM-DD):", dueDate);
+    if (newDueDate === null) return;
+
+    const newStatus = prompt("Enter Status (PENDING or DONE):", status);
+    if (newStatus === null) return;
+
+    if (!newSubject.trim() || !newTitle.trim() ||
+        !newDueDate.trim() ||
+        !["PENDING", "DONE"].includes(newStatus.trim().toUpperCase())) {
+        alert("Please enter valid assignment details.");
+        return;
+    }
+
+    try {
+        const csrfResponse = await fetch("/api/admin/csrf");
+        const csrf = await csrfResponse.json();
+
+        const response = await fetch(`/api/admin/assignments/${id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+                [csrf.headerName]: csrf.token
+            },
+            body: JSON.stringify({
+                subject: newSubject,
+                title: newTitle,
+                dueDate: newDueDate,
+                status: newStatus.trim().toUpperCase()
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error("Unable to update assignment.");
+        }
+
+        document.getElementById("assignmentMessage").textContent =
+            "Assignment updated successfully!";
+
+        loadAssignments();
+
+    } catch (error) {
+        alert(error.message);
+    }
+};
+
+
+// Delete existing assignment
+window.deleteAssignment = async function(id) {
+
+    if (!confirm("Are you sure you want to delete this assignment?")) {
+        return;
+    }
+
+    try {
+        const csrfResponse = await fetch("/api/admin/csrf");
+        const csrf = await csrfResponse.json();
+
+        const response = await fetch(`/api/admin/assignments/${id}`, {
+            method: "DELETE",
+            headers: {
+                [csrf.headerName]: csrf.token
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error("Unable to delete assignment.");
+        }
+
+        document.getElementById("assignmentMessage").textContent =
+            "Assignment deleted successfully!";
+
+        loadAssignments();
+
+    } catch (error) {
+        alert(error.message);
+    }
+};
+
+</script>
+
+</body>
+</html>
+

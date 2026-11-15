@@ -1,0 +1,15 @@
+# Ignore VS Code settings
+.vscode/
+
+# Ignore build output
+target/
+**/target/
+
+# Ignore sensitive configuration
+**/application.properties
+**/application.yml
+.env
+.env.*
+
+# Ignore log files
+*.log

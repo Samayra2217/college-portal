@@ -1,0 +1,588 @@
+
+:root {
+    --ink: #12263f;
+    --sky: #eaf1f8;
+    --gold: #f2a900;
+    --green: #1e8e5a;
+    --coral: #d64545;
+    --line: #d5dfeb;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: var(--sky);
+    color: var(--ink);
+    line-height: 1.6;
+}
+
+/* Header */
+.bar {
+    background: var(--ink);
+    color: #fff;
+    padding: 14px 5vw;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 4px 15px rgba(18, 38, 63, .12);
+}
+
+.logo {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: var(--gold);
+    color: var(--ink);
+    display: grid;
+    place-items: center;
+    font-weight: 800;
+    font-size: 17px;
+    letter-spacing: -1px;
+}
+
+/* Homepage */
+.hero {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 64px 5vw;
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    gap: 48px;
+    align-items: center;
+}
+
+.hero h1 {
+    font-size: 2.6rem;
+    line-height: 1.2;
+    margin-bottom: 14px;
+}
+
+.lookup {
+    background: #fff;
+    border-radius: 18px;
+    padding: 24px;
+    margin-top: 24px;
+    border-top: 6px solid var(--gold);
+    box-shadow: 0 18px 40px rgba(18, 38, 63, .12);
+}
+
+.lookup label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.lookup input {
+    width: 100%;
+    padding: 13px;
+    border: 2px solid var(--line);
+    border-radius: 10px;
+    margin-bottom: 14px;
+    font-size: 15px;
+    transition: border .2s, box-shadow .2s;
+}
+
+.lookup input:focus {
+    outline: none;
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(242, 169, 0, .15);
+}
+
+/* Buttons */
+.btn {
+    width: 100%;
+    padding: 14px;
+    border: 0;
+    border-radius: 10px;
+    background: var(--ink);
+    color: #fff;
+    font-size: 1.05rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .2s, transform .2s, box-shadow .2s;
+}
+
+.btn:hover {
+    background: #24466f;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(18, 38, 63, .18);
+}
+
+button:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 3px;
+}
+
+.error {
+    color: var(--coral);
+    margin-top: 12px;
+}
+
+/* Student ID Card */
+.idcard {
+    position: relative;
+    background: linear-gradient(135deg, #12263f, #24466f);
+    color: #fff;
+    border-radius: 22px;
+    padding: 30px;
+    min-height: 240px;
+    box-shadow: 0 20px 40px rgba(18, 38, 63, .22);
+    border: 1px solid rgba(255, 255, 255, .15);
+    overflow: hidden;
+}
+
+.idcard::before {
+    content: "STUDENT IDENTITY CARD";
+    display: block;
+    font-size: 12px;
+    letter-spacing: 2px;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 22px;
+}
+
+.idcard .pic {
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    background: var(--gold);
+    color: var(--ink);
+    display: grid;
+    place-items: center;
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+    border: 4px solid rgba(255, 255, 255, .2);
+}
+
+.idcard h3 {
+    font-size: 1.25rem;
+    margin-bottom: 5px;
+}
+
+.idcard p {
+    font-size: .95rem;
+    color: #dce8f5;
+}
+
+
+/* Student result section */
+#result {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 36px 5vw;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    background: var(--ink);
+    color: #fff;
+    border-radius: 18px;
+    padding: 22px 26px;
+    margin-bottom: 22px;
+    box-shadow: 0 8px 20px rgba(18, 38, 63, .12);
+}
+
+.avatar {
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    background: var(--gold);
+    color: var(--ink);
+    display: grid;
+    place-items: center;
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+.back {
+    margin-left: auto;
+    background: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+    padding: 9px 18px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background .2s, color .2s;
+}
+
+.back:hover {
+    background: #fff;
+    color: var(--ink);
+}
+
+/* Dashboard layout */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 22px;
+}
+
+.panel {
+    background: #fff;
+    border-radius: 16px;
+    padding: 22px;
+    box-shadow: 0 5px 18px rgba(18, 38, 63, .06);
+}
+
+.panel h2,
+.panel h3 {
+    margin-bottom: 14px;
+}
+
+.full {
+    grid-column: 1 / -1;
+}
+
+/* Fee progress bar */
+.track {
+    height: 12px;
+    background: var(--line);
+    border-radius: 8px;
+    margin-top: 12px;
+    overflow: hidden;
+}
+
+.fill {
+    height: 100%;
+    background: var(--green);
+    border-radius: 8px;
+    transition: width .4s ease;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 11px 10px;
+    border-bottom: 1px solid var(--line);
+}
+
+th {
+    background: #f4f7fb;
+    color: var(--ink);
+    font-weight: 700;
+}
+
+tbody tr:hover {
+    background: #f8fafd;
+}
+
+/* Status badges */
+.badge {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 999px;
+    font-size: .85rem;
+    font-weight: 600;
+}
+
+.done {
+    background: #dff3e8;
+    color: #14693f;
+}
+
+.pending {
+    background: #fbe1e1;
+    color: #a52d2d;
+}
+
+/* Semester tabs */
+.tab {
+    padding: 7px 16px;
+    border-radius: 999px;
+    border: 2px solid var(--line);
+    background: #fff;
+    color: var(--ink);
+    cursor: pointer;
+    margin: 0 8px 12px 0;
+    transition: all .2s;
+}
+
+.tab:hover,
+.tab.active {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: #fff;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 700px) {
+    .hero,
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .idcard {
+        display: none;
+    }
+
+    .hero {
+        padding-top: 40px;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .profile {
+        flex-wrap: wrap;
+    }
+
+    .back {
+        margin-left: 0;
+    }
+
+    .panel {
+        overflow-x: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .bar {
+        padding: 12px 4vw;
+    }
+
+    .hero,
+    #result {
+        padding-left: 4vw;
+        padding-right: 4vw;
+    }
+
+    .lookup,
+    .panel {
+        padding: 17px;
+    }
+
+    .profile {
+        padding: 18px;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+}
+
+/* Student Login Heading */
+.login-heading {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 24px;
+}
+
+.cap-icon {
+    width: 52px;
+    height: 52px;
+    background: #fff4d6;
+    border-radius: 14px;
+    display: grid;
+    place-items: center;
+    font-size: 26px;
+}
+
+.login-heading h2 {
+    font-size: 1.4rem;
+    color: var(--ink);
+    margin-bottom: 2px;
+}
+
+.login-heading p {
+    font-size: .9rem;
+    color: #718096;
+}
+
+/* Privacy Note */
+.privacy-note {
+    text-align: center;
+    color: #718096;
+    font-size: .85rem;
+    margin-top: 16px;
+}
+
+/* Modern Student Dashboard */
+
+#result {
+    max-width: 1250px;
+    padding-top: 45px;
+    padding-bottom: 50px;
+}
+
+/* Student Profile */
+#result .profile {
+    background: linear-gradient(120deg, #12263f, #294e78);
+    border-left: 6px solid var(--gold);
+    border-radius: 20px;
+    padding: 28px 32px;
+    min-height: 110px;
+    box-shadow: 0 12px 28px rgba(18, 38, 63, .16);
+}
+
+#result .avatar {
+    width: 72px;
+    height: 72px;
+    font-size: 1.8rem;
+    border: 3px solid rgba(255,255,255,.3);
+}
+
+/* Dashboard Cards */
+#result .panel {
+    border-radius: 20px;
+    padding: 28px;
+    border: 1px solid #e1e8f0;
+    box-shadow: 0 8px 25px rgba(18, 38, 63, .07);
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+#result .panel:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 32px rgba(18, 38, 63, .12);
+}
+
+/* Card Headings */
+#result .panel h3 {
+    font-size: 1.3rem;
+    padding-bottom: 15px;
+    margin-bottom: 18px;
+    border-bottom: 2px solid #edf1f6;
+}
+
+/* Fee Summary */
+#result .panel:first-child p {
+    font-size: 1.05rem;
+    margin-bottom: 8px;
+}
+
+#result .track {
+    height: 15px;
+    background: #e2eaf3;
+    border-radius: 20px;
+    margin-top: 18px;
+}
+
+#result .fill {
+    border-radius: 20px;
+}
+
+/* Tables */
+#result table {
+    margin-top: 12px;
+    border-spacing: 0;
+}
+
+#result th {
+    background: #edf2f8;
+    padding: 15px 12px;
+    font-size: .95rem;
+}
+
+#result td {
+    padding: 15px 12px;
+}
+
+#result tbody tr:nth-child(even) {
+    background: #f7f9fc;
+}
+
+#result tbody tr:hover {
+    background: #eaf1f8;
+}
+
+/* Assignment Status */
+#result .badge {
+    padding: 6px 15px;
+    font-size: .82rem;
+    letter-spacing: .4px;
+}
+
+/* Semester Tabs */
+#result .tab {
+    padding: 9px 20px;
+    font-weight: 600;
+}
+
+#result .tab:hover,
+#result .tab.active {
+    background: var(--ink);
+    color: white;
+    border-color: var(--ink);
+}
+
+/* Responsive Dashboard */
+@media (max-width: 700px) {
+    #result {
+        padding: 25px 4vw;
+    }
+
+    #result .profile {
+        padding: 20px;
+    }
+
+    #result .panel {
+        padding: 18px;
+    }
+}
+
+/* College Fee Card Enhancement */
+
+#result .panel:first-child {
+    background: linear-gradient(145deg, #ffffff, #f8fbff);
+    border-top: 5px solid var(--gold);
+}
+
+#result .panel:first-child h3 {
+    font-size: 1.4rem;
+    color: var(--ink);
+}
+
+#result .panel:first-child p {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 12px 0;
+    font-size: 1.05rem;
+}
+
+#result #ft,
+#result #fp {
+    font-weight: 700;
+    color: var(--ink);
+}
+
+#result #fd {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 8px;
+    background: #fbe1e1;
+    color: #a52d2d;
+    font-weight: 800;
+}
+
+#result .track {
+    height: 16px;
+    margin-top: 22px;
+    background: #e3eaf3;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+#result .fill {
+    background: linear-gradient(90deg, #1e8e5a, #42b883);
+    border-radius: 20px;
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Student Portal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="bar">
+    <div class="logo">CS</div>
+    <b>Christ University</b>
+  </header>
+
+  <main id="home" class="hero">
+    <section>
+      <h1>Check your fees, marks and assignments in one place.</h1>
+      <p>Enter your roll number and date of birth.</p>
+
+      <form class="lookup" id="form">
+        <div class="login-heading">
+    <span class="cap-icon">🎓</span>
+    <div>
+        <h2>Student Login</h2>
+        <p>Access your academic dashboard</p>
+    </div>
+  </div>
+        <label for="id">Roll no. or registration no.</label>
+        <input id="id" placeholder="e.g. BCA2403101">
+
+        <label for="dob">Date of birth</label>
+        <input id="dob" type="date">
+
+        <button class="btn" type="submit">Show my details</button>
+        <p class="privacy-note">🔒 Your student information is safe and secure.</p>
+        <p class="error" id="err"></p>
+      </form>
+    </section>
+
+    <aside class="idcard">
+      <div class="pic">A</div>
+      <h3>Your name here</h3>
+      <p>Roll no. BCA2403101</p>
+    </aside>
+
+  </main>
+
+  <section id="result" style="display:none">
+    <div class="profile">
+      <div class="avatar" id="av"></div>
+      <div><h2 id="nm"></h2><small id="info"></small></div>
+      <button class="back" id="back">Search again</button>
+    </div>
+
+    <div class="grid">
+      <div class="panel">
+        <h3>College fees</h3>
+        <p>Total: <b id="ft"></b></p>
+        <p>Paid: <b id="fp"></b></p>
+        <p>Due: <b id="fd"></b></p>
+        <div class="track"><div class="fill" id="bar"></div></div>
+      </div>
+
+      <div class="panel">
+        <h3>Semester marks</h3>
+        <div id="tabs"></div>
+        <table>
+          <thead><tr><th>Subject</th><th>Marks</th><th>Out of</th><th>Result</th></tr></thead>
+          <tbody id="mk"></tbody>
+        </table>
+      </div>
+
+      <div class="panel full">
+        <h3>Assignments</h3>
+        <table>
+          <thead><tr><th>Subject</th><th>Title</th><th>Due</th><th>Status</th></tr></thead>
+          <tbody id="as"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
