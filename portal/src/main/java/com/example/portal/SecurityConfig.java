@@ -54,7 +54,8 @@ public class SecurityConfig {
                     "/style.css",
                     "/script.js",
                     "/ping",
-                    "/api/student"
+                    "/api/student",
+                    "/api/admin/csrf"
                 ).permitAll()
                 .requestMatchers(
                     "/admin.html",
