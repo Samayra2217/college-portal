@@ -4,6 +4,14 @@
     {
       "source": "/api/:path*",
       "destination": "https://campusnexa-api.onrender.com/api/:path*"
+    },
+    {
+      "source": "/login",
+      "destination": "https://campusnexa-api.onrender.com/login"
+    },
+    {
+      "source": "/logout",
+      "destination": "https://campusnexa-api.onrender.com/logout"
     }
   ]
 }
